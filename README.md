@@ -1,5 +1,16 @@
 # 🐶 Bark...but with the ability to use voice cloning on custom audio/text pairs
 
+If you want to clone a voice just follow the `clone_voice.ipynb` notebook. If you want to generate audio from text, follow the `generate.ipynb` notebook.
+
+To create a voice clone sample, you need an audio/text pair of around 5-10 seconds (with the samples I decoded back to the original audio they were around 7 seconds).
+
+Haven't experimented with what kind of audio/text pairs work best, but this will be updated as we find out more.
+
+
+
+-------------------------------------------------------------------
+# Original README.md
+
 <a href="http://www.repostatus.org/#active"><img src="http://www.repostatus.org/badges/latest/active.svg" /></a>
 [![Twitter](https://img.shields.io/twitter/url/https/twitter.com/OnusFM.svg?style=social&label=@OnusFM)](https://twitter.com/OnusFM)
 [![](https://dcbadge.vercel.app/api/server/J2B2vsjKuE?compact=true&style=flat&)](https://discord.gg/J2B2vsjKuE)
