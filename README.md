@@ -1,4 +1,4 @@
-# 🐶 Bark
+# 🐶 Bark...but with the ability to use voice cloning on custom audio/text pairs
 
 <a href="http://www.repostatus.org/#active"><img src="http://www.repostatus.org/badges/latest/active.svg" /></a>
 [![Twitter](https://img.shields.io/twitter/url/https/twitter.com/OnusFM.svg?style=social&label=@OnusFM)](https://twitter.com/OnusFM)
