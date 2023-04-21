@@ -48,28 +48,6 @@ COARSE_RATE_HZ = 75
 SAMPLE_RATE = 24_000
 
 
-SUPPORTED_LANGS = [
-    ("English", "en"),
-    ("German", "de"),
-    ("Spanish", "es"),
-    ("French", "fr"),
-    ("Hindi", "hi"),
-    ("Italian", "it"),
-    ("Japanese", "ja"),
-    ("Korean", "ko"),
-    ("Polish", "pl"),
-    ("Portuguese", "pt"),
-    ("Russian", "ru"),
-    ("Turkish", "tr"),
-    ("Chinese", "zh"),
-]
-
-ALLOWED_PROMPTS = {"announcer"}
-for _, lang in SUPPORTED_LANGS:
-    for n in range(10):
-        ALLOWED_PROMPTS.add(f"{lang}_speaker_{n}")
-
-
 logger = logging.getLogger(__name__)
 
 
@@ -348,7 +326,6 @@ def generate_text_semantic(
     text = _normalize_whitespace(text)
     assert len(text.strip()) > 0
     if history_prompt is not None:
-        assert (history_prompt in ALLOWED_PROMPTS)
         semantic_history = np.load(
             os.path.join(CUR_PATH, "assets", "prompts", f"{history_prompt}.npz")
         )["semantic_prompt"]
@@ -492,7 +469,6 @@ def generate_coarse(
     semantic_to_coarse_ratio = COARSE_RATE_HZ / SEMANTIC_RATE_HZ * N_COARSE_CODEBOOKS
     max_semantic_history = int(np.floor(max_coarse_history / semantic_to_coarse_ratio))
     if history_prompt is not None:
-        assert (history_prompt in ALLOWED_PROMPTS)
         x_history = np.load(
             os.path.join(CUR_PATH, "assets", "prompts", f"{history_prompt}.npz")
         )
@@ -635,7 +611,6 @@ def generate_fine(
         and x_coarse_gen.max() <= CODEBOOK_SIZE - 1
     )
     if history_prompt is not None:
-        assert (history_prompt in ALLOWED_PROMPTS)
         x_fine_history = np.load(
             os.path.join(CUR_PATH, "assets", "prompts", f"{history_prompt}.npz")
         )["fine_prompt"]
