@@ -32,14 +32,20 @@ Bark is a transformer-based text-to-audio model created by [Suno](https://suno.a
 ## 🤖 Usage
 
 ```python
-from bark import SAMPLE_RATE, generate_audio
+from bark import SAMPLE_RATE, generate_audio, preload_models
 from IPython.display import Audio
 
+# download and load all models
+preload_models()
+
+# generate audio from text
 text_prompt = """
      Hello, my name is Suno. And, uh — and I like pizza. [laughs] 
      But I also have other interests such as playing tic tac toe.
 """
 audio_array = generate_audio(text_prompt)
+
+# play text in notebook
 Audio(audio_array, rate=SAMPLE_RATE)
 ```
 
@@ -83,7 +89,7 @@ audio_array = generate_audio(text_prompt)
 
 ### 🎤 Voice Presets and Voice/Audio Cloning
 
-Bark has the capability to fully clone voices - including tone, pitch, emotion and prosody. The model also attempts to preserve music, ambient noise, etc. from input audio. However, to mitigate misuse of this technology, we limit the audio history prompts to a limited set of Suno-provided, fully synthetic options to choose from for each language. Specify following the pattern: `{lang_code}_speaker_{number}`.
+Bark has the capability to fully clone voices - including tone, pitch, emotion and prosody. The model also attempts to preserve music, ambient noise, etc. from input audio. However, to mitigate misuse of this technology, we limit the audio history prompts to a limited set of Suno-provided, fully synthetic options to choose from for each language. Specify following the pattern: `{lang_code}_speaker_{0-9}`.
 
 ```python
 text_prompt = """
