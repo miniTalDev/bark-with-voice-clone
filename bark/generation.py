@@ -336,9 +336,18 @@ def preload_models(
 
 
 ####
+# Handle MPS immaturity in Pytorch
+####
+def _logits_to_device_float(logits):
+    if GLOBAL_ENABLE_MPS:
+        logits = logits.clone().detach().to("mps").to(torch.float)
+    else: 
+        logits = logits.to(logits_device).type(logits_dtype)
+    return logits
+
+####
 # Generation Functionality
 ####
-
 
 def _tokenize(tokenizer, text):
     return tokenizer.encode(text, add_special_tokens=False)
@@ -350,7 +359,6 @@ def _detokenize(tokenizer, enc_text):
 
 def _normalize_whitespace(text):
     return re.sub(r"\s+", " ", text).strip()
-
 
 TEXT_ENCODING_OFFSET = 10_048
 SEMANTIC_PAD_TOKEN = 10_000
@@ -464,10 +472,8 @@ def generate_text_semantic(
                 sorted_indices_to_remove[0] = False
                 relevant_logits[sorted_indices[sorted_indices_to_remove]] = -np.inf
                 relevant_logits = torch.from_numpy(relevant_logits)
-                if GLOBAL_ENABLE_MPS:
-                    relevant_logits = torch.tensor(relevant_logits, device="mps").to(torch.float)
-                else: 
-                    relevant_logits = relevant_logits.to(logits_device).type(logits_dtype)
+                relevant_logits = _logits_to_device_float(relevant_logits)
+
             if top_k is not None:
                 v, _ = torch.topk(relevant_logits, min(top_k, relevant_logits.size(-1)))
                 relevant_logits[relevant_logits < v[-1]] = -float("Inf")
@@ -663,10 +669,7 @@ def generate_coarse(
                     sorted_indices_to_remove[0] = False
                     relevant_logits[sorted_indices[sorted_indices_to_remove]] = -np.inf
                     relevant_logits = torch.from_numpy(relevant_logits)
-                    if GLOBAL_ENABLE_MPS:
-                        relevant_logits = torch.tensor(relevant_logits, device="mps").to(torch.float)
-                    else: 
-                        relevant_logits = relevant_logits.to(logits_device).type(logits_dtype)
+                    relevant_logits = _logits_to_device_float(relevant_logits)
 
                 if top_k is not None:
                     v, _ = torch.topk(relevant_logits, min(top_k, relevant_logits.size(-1)))
