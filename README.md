@@ -1,4 +1,4 @@
-# 🐶 Bark...but with the ability to use voice cloning on custom audio/text pairs
+# 🐶 BARK AI: but with the ability to use voice cloning on custom audio/text pairs
 
 If you want to clone a voice just follow the `clone_voice.ipynb` notebook. If you want to generate audio from text, follow the `generate.ipynb` notebook.
 
