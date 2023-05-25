@@ -8,6 +8,9 @@ You will get the best results by making generations with your cloned voice until
 
 - [BARK text to speech @ SERP AI](https://serp.ai/tools/bark-text-to-speech-ai-voice-clone-app/)
 
+# Shoutouts
+- Huge shoutout to [gitmylo](https://github.com/gitmylo/bark-voice-cloning-HuBERT-quantizer/) for the solution to the semantic token generation for better voice clones and finetunes
+
 -------------------------------------------------------------------
 # Original README.md
 
