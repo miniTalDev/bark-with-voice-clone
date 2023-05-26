@@ -1,12 +1,17 @@
-# From https://github.com/gitmylo/bark-voice-cloning-HuBERT-quantizer
+"""
+Modified HuBERT model without kmeans.
+Original author: https://github.com/lucidrains/
+Modified by: https://www.github.com/gitmylo/
+License: MIT
+"""
+
+# Modified code from https://github.com/lucidrains/audiolm-pytorch/blob/main/audiolm_pytorch/hubert_kmeans.py
 
 from pathlib import Path
 
 import torch
 from torch import nn
 from einops import pack, unpack
-
-import joblib
 
 import fairseq
 
@@ -37,12 +42,16 @@ class CustomHubert(nn.Module):
         checkpoint_path,
         target_sample_hz=16000,
         seq_len_multiple_of=None,
-        output_layer=9
+        output_layer=9,
+        device=None
     ):
         super().__init__()
         self.target_sample_hz = target_sample_hz
         self.seq_len_multiple_of = seq_len_multiple_of
         self.output_layer = output_layer
+
+        if device is not None:
+            self.to(device)
 
         model_path = Path(checkpoint_path)
 
@@ -51,6 +60,9 @@ class CustomHubert(nn.Module):
         checkpoint = torch.load(checkpoint_path)
         load_model_input = {checkpoint_path: checkpoint}
         model, *_ = fairseq.checkpoint_utils.load_model_ensemble_and_task(load_model_input)
+
+        if device is not None:
+            model[0].to(device)
 
         self.model = model[0]
         self.model.eval()
