@@ -2,7 +2,7 @@
 
 If you want to clone a voice just follow the `clone_voice.ipynb` notebook. If you want to generate audio from text, follow the `generate.ipynb` notebook.
 
-To create a voice clone sample, you need an audio sample of less than 13 seconds.
+To create a voice clone sample, you need an audio sample of around 5-6 seconds
 
 You will get the best results by making generations with your cloned voice until you find one that is really close to the source. Then use that as the new history prompt (comes from the model so should theoretically be more consistent)
 
