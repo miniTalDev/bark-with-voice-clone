@@ -15,18 +15,18 @@ Huge shoutout & thank you to:
 [gitmylo](https://github.com/gitmylo/bark-voice-cloning-HuBERT-quantizer/) 
 for the solution to the semantic token generation for better voice clones and finetunes (HuBERT, etc.)
 
-![francislabountyjr](https://avatars.githubusercontent.com/u/73464335?v=4)
-![gkucsko](https://avatars.githubusercontent.com/u/5068315?v=4)
-![kmfreyberg](https://avatars.githubusercontent.com/u/32879321?v=4)
-![Vaibhavs10](https://avatars.githubusercontent.com/u/18682411?v=4)
-![mcamac](https://avatars.githubusercontent.com/u/461009?v=4)
-![fiq](https://avatars.githubusercontent.com/u/236293?v=4)
-![devinschumacher](https://avatars.githubusercontent.com/u/45643901?v=4)
-![zygi](https://avatars.githubusercontent.com/u/2059901?v=4)
-![jn-jairo](https://avatars.githubusercontent.com/u/5104869?v=4)
-![gitmylo](https://avatars.githubusercontent.com/u/36931363?v=4)
-![alyxdow](https://avatars.githubusercontent.com/u/84633629?v=4)
-![mikeyshulman](https://avatars.githubusercontent.com/u/2565833?v=4)
+<img src="https://avatars.githubusercontent.com/u/73464335?v=4" alt="francislabountyjr" style="border-radius: 50%; width: 75px; height: 75px;">
+<img src="https://avatars.githubusercontent.com/u/5068315?v=4" alt="gkucsko" style="border-radius: 50%; width: 75px; height: 75px;">
+<img src="https://avatars.githubusercontent.com/u/32879321?v=4" alt="kmfreyberg" style="border-radius: 50%; width: 75px; height: 75px;">
+<img src="https://avatars.githubusercontent.com/u/18682411?v=4" alt="Vaibhavs10" style="border-radius: 50%; width: 75px; height: 75px;">
+<img src="https://avatars.githubusercontent.com/u/461009?v=4" alt="mcamac" style="border-radius: 50%; width: 75px; height: 75px;">
+<img src="https://avatars.githubusercontent.com/u/236293?v=4" alt="fiq" style="border-radius: 50%; width: 75px; height: 75px;">
+<img src="https://avatars.githubusercontent.com/u/45643901?v=4" alt="devinschumacher" style="border-radius: 50%; width: 75px; height: 75px;">
+<img src="https://avatars.githubusercontent.com/u/2059901?v=4" alt="zygi" style="border-radius: 50%; width: 75px; height: 75px;">
+<img src="https://avatars.githubusercontent.com/u/5104869?v=4" alt="jn-jairo" style="border-radius: 50%; width: 75px; height: 75px;">
+<img src="https://avatars.githubusercontent.com/u/36931363?v=4" alt="gitmylo" style="border-radius: 50%; width: 75px; height: 75px;">
+<img src="https://avatars.githubusercontent.com/u/84633629?v=4" alt="alyxdow" style="border-radius: 50%; width: 75px; height: 75px;">
+<img src="https://avatars.githubusercontent.com/u/2565833?v=4" alt="mikeyshulman" style="border-radius: 50%; width: 75px; height: 75px;">
 
 
 
