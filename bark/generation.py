@@ -420,7 +420,10 @@ def generate_text_semantic(
     assert len(text.strip()) > 0
     if history_prompt is not None:
         if history_prompt.endswith(".npz"):
-            semantic_history = np.load(history_prompt)["semantic_prompt"]
+            try:
+                semantic_history = np.load(history_prompt)["semantic_prompt"]
+            except:
+                semantic_history = np.load(history_prompt)["semantic"]
         else:
             semantic_history = np.load(
                 os.path.join(CUR_PATH, "assets", "prompts", f"{history_prompt}.npz")
@@ -592,8 +595,12 @@ def generate_coarse(
             x_history = np.load(
                 os.path.join(CUR_PATH, "assets", "prompts", f"{history_prompt}.npz")
             )
-        x_semantic_history = x_history["semantic_prompt"]
-        x_coarse_history = x_history["coarse_prompt"]
+        try:
+            x_semantic_history = x_history["semantic_prompt"]
+            x_coarse_history = x_history["coarse_prompt"]
+        except:
+            x_semantic_history = x_history["semantic"]
+            x_coarse_history = x_history["coarse"]
         assert (
             isinstance(x_semantic_history, np.ndarray)
             and len(x_semantic_history.shape) == 1
@@ -750,7 +757,10 @@ def generate_fine(
     )
     if history_prompt is not None:
         if history_prompt.endswith(".npz"):
-            x_fine_history = np.load(history_prompt)["fine_prompt"]
+            try:
+                x_fine_history = np.load(history_prompt)["fine_prompt"]
+            except:
+                x_fine_history = np.load(history_prompt)["fine"]
         else:
             x_fine_history = np.load(
                 os.path.join(CUR_PATH, "assets", "prompts", f"{history_prompt}.npz")

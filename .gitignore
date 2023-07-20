@@ -6,3 +6,7 @@ wandb/
 *_output/
 output.npz
 joe_biden_state_of_union/
+Retrieval-based-Voice-Conversion-WebUI/
+devin-youtube/
+train_rvc.ipynb
+*.pt
